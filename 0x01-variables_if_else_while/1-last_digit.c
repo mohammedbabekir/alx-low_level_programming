@@ -7,26 +7,27 @@
  *Return: Always 0 (Success)
  */
 
-int main() {
-    // Seed the random number generator
-    srand(time(NULL));
+int main(void)
+{
+	int n;
 
-    // Generate a random number
-    int n = rand();
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
 
-    // Extract the last digit of n
-    int lastDigit = n % 10;
+	printf("Last digit of %i is %i and is ", n, (n % 10));
 
-    // Print the output based on the last digit
-    printf("The string Last digit of %d is ", n);
-    
-    if (lastDigit > 5) {
-        printf("and is greater than 5\n");
-    } else if (lastDigit == 0) {
-        printf("and is 0\n");
-    } else {
-        printf("and is less than 6 and not 0\n");
-    }
+	if ((n % 10) == 0)
+	{
+		printf("0\n");
+	}
+	else if ((n % 10) > 5)
+	{
+		printf("greater than 5\n");
+	}
+	else
+	{
+		printf("less than 6 and not 0\n");
+	}
 
-    return 0;
+	return (0);
 }
